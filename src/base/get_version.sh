@@ -66,8 +66,8 @@ else
   fi
 
   # Figure out HEAD commit SHA-1.
-  head_commit=$(git log -1 --pretty=oneline | awk '{print $1}')
-  head_commit_short=$(git log -1 --oneline --abbrev=4 | awk '{print $1}')
+  head_commit=$(git log -1 --pretty=oneline | awk '{print $1}' | sed -r "s/[[:cntrl:]]\[[0-9]{1,3}m//g")
+  head_commit_short=$(git log -1 --oneline --abbrev=4 | awk '{print $1}' | sed -r "s/[[:cntrl:]]\[[0-9]{1,3}m//g")
   version="$version-${head_commit_short}"
 fi
 
