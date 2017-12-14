@@ -21,7 +21,7 @@ cat $kwsdatadir/raw_keywords.txt | perl -e '
   $idx=1;
   while(<>) {
     chomp;
-    printf "WSJ-%04d $_\n", $idx;
+    printf "ICS-%04d $_\n", $idx;
     $idx++;
   }' > $kwsdatadir/keywords.txt
 
